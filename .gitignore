@@ -1,0 +1,21 @@
+# Môi trường ảo Python
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Thư mục chứa dữ liệu ảnh thô và mask (không upload)
+data/frames/
+data/masks/
+data/raw/
+data/videos/
+
+# Giữ lại thư mục CSDL Vector và Metadata
+# Không ignore data/index/
+!data/index/
+!data/index/*.index
+!data/index/mapping.csv
+
+# File tạm
+temp_query.jpg
+*.log

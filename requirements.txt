@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+opencv-python
+scikit-learn
+numpy
+Pillow
+tqdm
+psycopg2-binary
+git+https://github.com/openai/CLIP.git
+# transnetv2-pytorch  ← Cài thêm nếu muốn dùng scene detection chính xác hơn:
+#   pip install transnetv2-pytorch
