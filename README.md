@@ -84,13 +84,3 @@ flowchart TD
 2. **Phase 1.5 (`run_phase1_5_smart_crop.py`)**: DÃ¹ng máº¡ng nÆ¡-ron `U^2-Net` (`rembg`) Ä‘á»ƒ bÃ³c tÃ¡ch ná»n (background) cá»±c ká»³ sáº¯c nÃ©t, giá»¯ láº¡i hoÃ n toÃ n "thá»‹t" Ä‘á»™ng váº­t.
 3. **Phase 2 (`run_phase2_build_index.py`)**: Äá»c áº£nh Ä‘Ã£ xÃ³a ná»n, sá»­ dá»¥ng Mask Ä‘á»ƒ **bá» qua ná»n Ä‘en**, tÃ­nh toÃ¡n 4 Vector Ä‘áº·c trÆ°ng (CLIP, Color, HOG, LBP) vÃ  náº¡p vÃ o CSDL FAISS.
 4. **Phase 3 (`app.py`)**: Giao diá»‡n Streamlit cho phÃ©p upload áº£nh. áº¢nh cÅ©ng Ä‘Æ°á»£c Ä‘Æ°a qua `U^2-Net` Ä‘á»ƒ Ä‘áº£m báº£o tÃ­nh Ä‘á»“ng nháº¥t. Sau Ä‘Ã³ thuáº­t toÃ¡n `Late Fusion` vÃ  `Video Grouping` sáº½ xáº¿p háº¡ng vÃ  tráº£ vá» 5 Video liÃªn quan nháº¥t.
-
-## 2.1. Ti?n x? lý
-Toàn b? video nhóm s? d?ng du?c chu?n hóa v? d?nh d?ng th?ng nh?t:
-• Ð?c video t? thu m?c d?u vào, h? tr? các d?nh d?ng .mp4, .avi, .mov, .mkv, .webm
-• Trích xu?t khung hình (Keyframe): Video du?c chia thành các shot theo nguyên lý phát hi?n thay d?i c?nh thông qua hai phuong pháp:
-  - **Phuong pháp 1 (Uu tiên) - M?ng no-ron TransNetV2**: M?ng h?c sâu d? doán di?m c?t c?nh v?i d? chính xác cao trên t?ng batch (500 frames/l?n).
-  - **Phuong pháp 2 (D? phòng) - Bi?u d? màu (Histogram Difference)**: H? th?ng t? d?ng chuy?n sang so sánh kho?ng cách Bhattacharyya gi?a các histogram HSV liên ti?p. N?u d? khác bi?t > 0.4, m?t shot m?i du?c dánh d?u.
-• L?c và l?y m?u: B? qua các shot quá ng?n (du?i 15 frame). M?i shot h?p l? s? l?y d?i di?n t?i da 3 keyframes ? các v? trí chia d?u.
-• Ti?n x? lý ?nh (Letterboxing): T?t c? các keyframe du?c thu nh? sao cho l?n nh?t không vu?t quá 512 pixel, gi? nguyên t? l? khung hình th?t. Ph?n b? du du?c d?n vi?n den d? t?o ra ?nh vuông chu?n 512x512 giúp t?i uu hóa khi dua vào các m?ng h?c sâu.
-• Xóa phông (Smart Cropping): Toàn b? ?nh keyframe 512x512 du?c ch?y qua mô hình **U^2-Net** d? tách n?n t? d?ng. Ph?n c?nh quan du?c bi?n thành màu den tuy?t d?i (pixel=0), tri?t tiêu hoàn toàn s? nhi?u lo?n màu s?c.
